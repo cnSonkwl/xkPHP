@@ -8,7 +8,7 @@ class config{
 		$db=new PDO(self::$PDO,self::$user,self::$pwd);
 		return $db;
 	}
-  //事件处理
+  	//事件处理
 	static public function transaction($sqls){
 		$sqls=(array)$sqls;
 		try
@@ -33,11 +33,11 @@ class config{
 	//发布模式，默认调试模式
 	static public function release(){
 		error_reporting(E_ALL);
-        ini_set('display_errors','Off');
-        ini_set('log_errors', 'On');
-        ini_set('error_log','logs/error.log');
-  }
-  //内部提交驗證
+		ini_set('display_errors','Off');
+		ini_set('log_errors', 'On');
+		ini_set('error_log','logs/error.log');
+	  }
+ 	 //内部提交驗證
 	static public function checkPost(){
 		//是否是POST
 		if($_SERVER["REQUEST_METHOD"]=="POST"){
