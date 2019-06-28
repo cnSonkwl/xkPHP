@@ -1,6 +1,7 @@
 <?php
 include 'route.php';//載入路由文件
 include 'config.php';//載入配置文件
+header("Content-type:text/html; charset=utf-8"); //文件编码
 //發佈模式
 //config::release();
 $_page='index';//默認頁面
@@ -17,7 +18,7 @@ if(isset($_route[$_page])){
 	//檢測是否為post
 	if($_SERVER["REQUEST_METHOD"]=="POST"){
 		//POST
-		if(!isset($_route[$_page]["post"])){
+		if(!isset($_route[$_page]["post"])||!is_file($_route[$_page]["post"])){
 			echo 'post:404';
 			exit;
 		}
